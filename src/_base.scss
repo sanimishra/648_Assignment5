@@ -1,0 +1,87 @@
+body {
+  font-family: $webfont, sans-serif;
+  font-size: 1em;
+  line-height: 2em;
+  background: url($bg) $headlinetext repeat-x;
+  @include fixmargin
+  ();
+}
+
+main {
+  @include Dimensions(940px, "null");
+  margin: 0 auto;
+  padding: 0px 10px;
+  @include break($largeframe) {
+    width: 768px;
+  }
+  @include break($mediumframe) {
+    width: 460px;
+  }
+  @include break($smallframe) {
+    width: 300px;
+  }
+}
+
+header {
+  @include Dimensions(inherit, "null");
+  @include fixit("null", both);
+  text-align: center;
+  @include fixpadding(40px, "null", "null", "null");
+
+  img {
+    max-width: 100%;
+    height: auto;
+    @include break($smallframe) {
+      margin-bottom: 80px;
+    }
+  }
+
+  h1 {
+    color: $orange;
+    font-weight: 100;
+    font-size: 4em;
+    line-height: 0;
+    @include break($largeframe) {
+      font-size: 3em;
+    }
+    @include break($mediumframe) {
+      font-size: 1em;
+    }
+    &:first-child {
+      @include break($smallframe) {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  h2 {
+    color: $headlinetext;
+    font-weight: 900;
+    font-size: 2.5em;
+    line-height: 0;
+    margin-bottom: 70px;
+    @include break($largeframe) {
+      font-size: 1.5em;
+    }
+    @include break($mediumframe) {
+      font-size: 1em;
+    }
+    @include break($smallframe) {
+      font-size: 1.4em;
+    }
+  }
+  h3 {
+    color: $grayheadings;
+    font-weight: 400;
+    font-size: 2em;
+    line-height: 0;
+    margin-bottom: 50px;
+    @include break($mediumframe) {
+      font-size: 1.5em;
+    }
+    @include break($smallframe) {
+      color: $headlinetext;
+      font-size: 1em;
+    }
+  }
+}

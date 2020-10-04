@@ -1,0 +1,101 @@
+figure {
+  @include Dimensions(400px, 190px);
+  background:url($logo) no-repeat 0 50px;
+  @include fixit(left, "null");
+  display: block;
+  @include fixmargin();
+  @include break($largeframe) {
+    @include Dimensions(inherit, 140px);
+    float:none;
+    background-position:center;
+  }
+  @include break($smallframe) {
+    background-size:contain;
+    height:100px;
+  }
+}
+nav {
+  @include Dimensions(540px, 190px);
+  @include fixit(left,"null");
+  text-align:right;
+  ul {
+    list-style-type:none;
+    @include fixmargin(95px, "null", "null", "null");
+    @include break($largeframe) {
+      margin-top:0;
+    }
+    li {
+      display: inline;
+      font-size: 0.8em;
+      margin-right: 10px;
+      @include break($largeframe) {
+        font-size:1em;
+        margin:0 10px;
+      }
+      @include break($mediumframe) {
+        font-size:0.8em;
+        margin:0 5px;
+      }
+      a {
+        color:$orange;
+        text-decoration:none;
+        letter-spacing:-0.01em;
+        &:hover {
+          color:$headlinetext;
+        }
+      }
+    }
+  }
+
+  @include break($largeframe) {
+    @include Dimensions(inherit, 50px);
+    float:none;
+    text-align:center;
+  }
+  @include break($smallframe) {
+    margin-bottom:40px !important;
+  }
+}
+
+.greybar {
+  @include Dimensions(100%, 90px);
+  background:$lightgreybar;
+  clear:both;
+  @include fixpadding(30px, "null", "null", "null");
+  @include break($smallframe) {
+    display:none;
+  }
+}
+
+footer {
+  @include Dimensions(100%, 120px);
+  @include fixit("null", "null");
+  background:#30353D;
+  text-align:center;
+  color:#FFF;
+  @include fixpadding(50px, "null", "null", "null");
+
+  @include break($smallframe) {
+    text-align:center;
+  }
+  p, img {
+    @include break($smallframe) {
+      float:none;margin:0;
+    }
+  }
+}
+
+.social-media {
+  margin:0 auto;
+  width:165px;
+  div {
+    float:left;
+    margin-right:5px;
+  }
+  a {
+    display:block;
+    @include Dimensions(36px, 36px);
+    text-indent:-9999px;
+  }
+  @include socialmedia($sociamedia);
+}
